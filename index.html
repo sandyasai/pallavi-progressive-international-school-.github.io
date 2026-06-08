@@ -1,383 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pallavi Progressive International School</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pallavi Progressive International School</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+--green: #1a6b3c;
+--green-dark: #114428;
+--green-light: #2d9158;
+--saffron: #f97316;
+--saffron-light: #fdba74;
+--white: #ffffff;
+--cream: #fefaf4;
+--gray: #64748b;
+--light: #f1f5f0;
+--navy: #0f2027;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--navy); overflow-x: hidden; }
+nav {
+position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+background: var(--green-dark);
+display: flex; align-items: center; justify-content: space-between;
+padding: 0 4vw; height: 66px;
+border-bottom: 3px solid var(--saffron);
+}
+.nav-brand { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
+.nav-emblem {
+width: 42px; height: 42px; border-radius: 50%;
+background: var(--saffron);
+display: flex; align-items: center; justify-content: center;
+font-size: 1.3rem; font-weight: 900; color: var(--green-dark);
+font-family: 'Playfair Display', serif;
+flex-shrink: 0;
+}
+.nav-name { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--white); line-height: 1.2; }
+.nav-name span { display: block; font-size: 0.65rem; color: var(--saffron-light); font-family: 'Outfit', sans-serif; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; }
+.nav-links { display: flex; gap: 1.6rem; list-style: none; }
+.nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover { color: var(--saffron); }
+.nav-admit { background: var(--saffron); color: var(--green-dark) !important; padding: 0.45rem 1.1rem; font-weight: 700 !important; transition: background 0.2s !important; }
+.nav-admit:hover { background: var(--saffron-light) !important; color: var(--green-dark) !important; }
+#home { min-height: 100vh; padding-top: 66px; background: var(--green-dark); position: relative; overflow: hidden; display: flex; align-items: center; }
+.hero-pattern { position: absolute; inset: 0; background-image: radial-gradient(circle at 70% 30%, rgba(249,115,22,0.18) 0%, transparent 55%), radial-gradient(circle at 15% 75%, rgba(45,145,88,0.25) 0%, transparent 45%); }
+.hero-dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 28px 28px; }
+.hero-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 4rem 5vw; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; }
+.hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(249,115,22,0.15); border: 1px solid rgba(249,115,22,0.4); color: var(--saffron-light); padding: 0.4rem 1rem; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; margin-bottom: 1.5rem; }
+.hero-badge::before { content: '🎓'; font-size: 0.9rem; }
+h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 4.2rem); color: var(--white); line-height: 1.1; margin-bottom: 0.5rem; }
+h1 .school-name { color: var(--saffron); display: block; }
+.hero-affil { font-size: 0.9rem; color: rgba(255,255,255,0.55); letter-spacing: 0.06em; margin-bottom: 1.5rem; border-left: 3px solid var(--saffron); padding-left: 1rem; }
+.hero-desc { color: rgba(255,255,255,0.72); font-size: 1.05rem; line-height: 1.78; max-width: 480px; margin-bottom: 2.5rem; }
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary { background: var(--saffron); color: var(--green-dark); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.85rem 1.8rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: background 0.2s, transform 0.15s; }
+.btn-primary:hover { background: var(--saffron-light); transform: translateY(-2px); }
+.btn-secondary { border: 2px solid rgba(255,255,255,0.3); color: var(--white); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.85rem 1.8rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: border-color 0.2s, background 0.2s; }
+.btn-secondary:hover { border-color: var(--saffron); background: rgba(249,115,22,0.1); }
+.hero-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.hcard { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); padding: 1.5rem 1.2rem; position: relative; overflow: hidden; animation: slideUp 0.6s ease both; }
+.hcard::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--saffron); }
+.hcard:nth-child(1) { animation-delay: 0.1s; } .hcard:nth-child(2) { animation-delay: 0.2s; } .hcard:nth-child(3) { animation-delay: 0.3s; } .hcard:nth-child(4) { animation-delay: 0.4s; }
+.hcard-icon { font-size: 1.8rem; margin-bottom: 0.6rem; }
+.hcard-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--saffron); line-height: 1; }
+.hcard-label { font-size: 0.78rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.3rem; }
+.admission-banner { background: var(--saffron); padding: 1.2rem 5vw; display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap; text-align: center; }
+.admission-banner strong { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--green-dark); }
+.admission-banner span { font-size: 0.92rem; color: var(--green-dark); opacity: 0.85; }
+.admission-banner a { background: var(--green-dark); color: var(--white); padding: 0.5rem 1.4rem; font-weight: 600; text-decoration: none; font-size: 0.88rem; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s; }
+.admission-banner a:hover { background: var(--green); }
+section { padding: 6rem 5vw; }
+.sec-inner { max-width: 1200px; margin: 0 auto; }
+.sec-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 0.8rem; }
+.sec-tag::before { content: ''; width: 20px; height: 2px; background: var(--green); display: inline-block; }
+.sec-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.2rem); color: var(--navy); line-height: 1.1; margin-bottom: 1rem; }
+#about { background: var(--white); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 3.5rem; }
+.about-card { background: var(--cream); border-left: 4px solid var(--green); padding: 1.5rem 1.5rem; margin-bottom: 1.2rem; }
+.about-card-title { font-weight: 700; font-size: 0.95rem; color: var(--green); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+.about-card p { font-size: 0.92rem; color: var(--gray); line-height: 1.7; }
+.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 1.5rem; }
+.why-item { display: flex; align-items: center; gap: 0.6rem; background: var(--light); padding: 0.75rem 1rem; font-size: 0.88rem; color: var(--navy); font-weight: 500; }
+.why-item::before { content: '✅'; font-size: 0.9rem; }
+.about-right p { color: var(--gray); font-size: 1rem; line-height: 1.8; margin-bottom: 1.2rem; }
+.school-visual { background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%); padding: 3rem 2rem; text-align: center; position: relative; overflow: hidden; margin-bottom: 1.5rem; }
+.school-visual::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 20px 20px; }
+.school-visual-icon { font-size: 4rem; position: relative; z-index: 1; margin-bottom: 0.8rem; }
+.school-visual-name { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--white); position: relative; z-index: 1; }
+.school-visual-sub { font-size: 0.8rem; color: rgba(255,255,255,0.6); position: relative; z-index: 1; margin-top: 0.3rem; }
+.affil-tag { background: var(--saffron); color: var(--green-dark); font-size: 0.78rem; font-weight: 700; padding: 0.4rem 1rem; display: inline-block; letter-spacing: 0.08em; margin-top: 0.8rem; position: relative; z-index: 1; }
+#programs { background: var(--cream); }
+.programs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; margin-top: 3rem; }
+.prog-card { background: var(--white); border: 1px solid #e2e8f0; padding: 2rem 1.5rem; text-align: center; border-top: 4px solid var(--green); transition: transform 0.2s, box-shadow 0.2s; }
+.prog-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(26,107,60,0.12); }
+.prog-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.prog-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--navy); margin-bottom: 0.4rem; }
+.prog-range { font-size: 0.82rem; color: var(--green); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.8rem; }
+.prog-desc { font-size: 0.88rem; color: var(--gray); line-height: 1.6; }
+#facilities { background: var(--green-dark); }
+#facilities .sec-title { color: var(--white); }
+#facilities .sec-tag { color: var(--saffron); }
+#facilities .sec-tag::before { background: var(--saffron); }
+.fac-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 3rem; }
+.fac-item { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); padding: 1.8rem 1.4rem; transition: background 0.2s; }
+.fac-item:hover { background: rgba(255,255,255,0.1); }
+.fac-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+.fac-name { font-weight: 700; color: var(--white); font-size: 1rem; margin-bottom: 0.4rem; }
+.fac-desc { font-size: 0.86rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+#activities { background: var(--white); }
+.act-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-top: 3rem; }
+.act-item { background: var(--light); padding: 1.5rem 1rem; text-align: center; border-bottom: 3px solid transparent; transition: border-color 0.2s, transform 0.2s; }
+.act-item:hover { border-color: var(--saffron); transform: translateY(-3px); }
+.act-item .act-icon { font-size: 2rem; margin-bottom: 0.6rem; }
+.act-item .act-name { font-weight: 600; font-size: 0.9rem; color: var(--navy); }
+#admissions { background: var(--cream); }
+.adm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; align-items: start; }
+.adm-steps { display: flex; flex-direction: column; gap: 1.2rem; }
+.adm-step { display: flex; gap: 1.2rem; align-items: flex-start; background: var(--white); padding: 1.4rem 1.4rem; border-left: 4px solid var(--green); }
+.step-num { width: 38px; height: 38px; flex-shrink: 0; background: var(--green); color: var(--white); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 900; }
+.step-title { font-weight: 700; color: var(--navy); margin-bottom: 0.2rem; font-size: 0.95rem; }
+.step-desc { font-size: 0.86rem; color: var(--gray); line-height: 1.5; }
+.adm-highlight { background: var(--green-dark); padding: 2.5rem 2rem; color: var(--white); }
+.adm-highlight h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.2rem; color: var(--saffron); }
+.topper { display: flex; align-items: center; gap: 0.8rem; padding: 0.9rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.topper:last-child { border-bottom: none; }
+.topper-rank { font-size: 1.5rem; }
+.topper-name { font-weight: 600; font-size: 0.95rem; }
+.topper-score { color: var(--saffron); font-weight: 700; font-size: 0.9rem; margin-left: auto; }
+.cbse-note { margin-top: 1.5rem; background: rgba(249,115,22,0.15); border: 1px solid rgba(249,115,22,0.3); padding: 1rem 1.2rem; font-size: 0.88rem; color: rgba(255,255,255,0.8); }
+#contact { background: var(--navy); position: relative; overflow: hidden; }
+#contact::after { content: ''; position: absolute; bottom: -100px; right: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(26,107,60,0.2) 0%, transparent 70%); pointer-events: none; }
+#contact .sec-title { color: var(--white); }
+#contact .sec-tag { color: var(--saffron); }
+#contact .sec-tag::before { background: var(--saffron); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3.5rem; align-items: start; }
+.contact-info-items { display: flex; flex-direction: column; gap: 1.4rem; margin-top: 1.5rem; }
+.ci { display: flex; gap: 1rem; align-items: flex-start; background: rgba(255,255,255,0.05); padding: 1.2rem 1.2rem; border-left: 3px solid var(--green-light); }
+.ci-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+.ci-label { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--saffron); font-weight: 600; margin-bottom: 0.3rem; }
+.ci-value { color: var(--white); font-size: 0.95rem; line-height: 1.55; }
+.ci-value a { color: var(--saffron-light); text-decoration: none; }
+.ci-value a:hover { text-decoration: underline; }
+.contact-form { display: flex; flex-direction: column; gap: 1.1rem; }
+.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.cf-group { display: flex; flex-direction: column; gap: 0.4rem; }
+.cf-group label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); font-weight: 500; }
+.cf-group input, .cf-group textarea, .cf-group select { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); color: var(--white); padding: 0.8rem 1rem; font-family: 'Outfit', sans-serif; font-size: 0.94rem; outline: none; transition: border-color 0.2s; resize: none; }
+.cf-group input::placeholder, .cf-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+.cf-group select option { background: var(--navy); }
+.cf-group input:focus, .cf-group textarea:focus, .cf-group select:focus { border-color: var(--saffron); }
+.cf-submit { background: var(--saffron); color: var(--green-dark); border: none; cursor: pointer; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.95rem 2rem; display: flex; align-items: center; gap: 0.5rem; width: fit-content; transition: background 0.2s, transform 0.15s; }
+.cf-submit:hover { background: var(--saffron-light); transform: translateY(-2px); }
+.cf-success { display: none; background: rgba(26,107,60,0.2); border: 1px solid var(--green-light); color: #86efac; padding: 0.9rem 1.1rem; font-size: 0.9rem; }
+.hours-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 1.2rem 1.5rem; margin-top: 1.2rem; }
+.hours-box h4 { color: var(--saffron); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.6rem; }
+.hours-box p { color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6; }
+footer { background: #060d12; color: rgba(255,255,255,0.3); text-align: center; padding: 2rem 5vw; font-size: 0.83rem; border-top: 1px solid rgba(255,255,255,0.06); }
+footer strong { color: var(--saffron); }
+@keyframes slideUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.fade { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade.in { opacity: 1; transform: none; }
 
-    :root {
-      --green: #1a6b3c;
-      --green-dark: #114428;
-      --green-light: #2d9158;
-      --saffron: #f97316;
-      --saffron-light: #fdba74;
-      --white: #ffffff;
-      --cream: #fefaf4;
-      --gray: #64748b;
-      --light: #f1f5f0;
-      --navy: #0f2027;
-    }
+/* ── GALLERY ── */
+#gallery { background: var(--cream); }
+#gallery .sec-tag { color: var(--green); }
+.gal-btn { background: var(--white); border: 1px solid #e2e8f0; color: var(--gray); padding: 0.45rem 1.1rem; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; font-family: 'Outfit', sans-serif; transition: all 0.2s; }
+.gal-btn:hover, .gal-btn.active { background: var(--green); color: var(--white); border-color: var(--green); }
+.gal-item { position: relative; overflow: hidden; cursor: zoom-in; background: #e2e8f0; border-radius: 2px; }
+.gal-item img { width: 100%; height: 220px; object-fit: cover; display: block; transition: transform 0.4s ease; }
+.gal-item.tall img { height: 460px; }
+.gal-item:hover img { transform: scale(1.06); }
+.gal-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,32,39,0.85) 0%, transparent 60%); display: flex; align-items: flex-end; padding: 1rem; opacity: 0; transition: opacity 0.3s; }
+.gal-item:hover .gal-overlay { opacity: 1; }
+.gal-overlay span { color: var(--white); font-size: 0.83rem; font-weight: 600; line-height: 1.4; }
+.gal-item.hidden { display: none; }
+#lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.93); align-items: center; justify-content: center; flex-direction: column; padding: 2rem; cursor: zoom-out; }
 
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--navy); overflow-x: hidden; }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      background: var(--green-dark);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 4vw; height: 66px;
-      border-bottom: 3px solid var(--saffron);
-    }
-    .nav-brand { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
-    .nav-emblem {
-      width: 42px; height: 42px; border-radius: 50%;
-      background: var(--saffron);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem; font-weight: 900; color: var(--green-dark);
-      font-family: 'Playfair Display', serif;
-      flex-shrink: 0;
-    }
-    .nav-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem; color: var(--white);
-      line-height: 1.2;
-    }
-    .nav-name span { display: block; font-size: 0.65rem; color: var(--saffron-light); font-family: 'Outfit', sans-serif; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      color: rgba(255,255,255,0.75); text-decoration: none;
-      font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em;
-      text-transform: uppercase; transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--saffron); }
-    .nav-admit {
-      background: var(--saffron); color: var(--green-dark) !important;
-      padding: 0.45rem 1.1rem; font-weight: 700 !important;
-      transition: background 0.2s !important;
-    }
-    .nav-admit:hover { background: var(--saffron-light) !important; color: var(--green-dark) !important; }
-
-    /* ── HERO ── */
-    #home {
-      min-height: 100vh; padding-top: 66px;
-      background: var(--green-dark);
-      position: relative; overflow: hidden;
-      display: flex; align-items: center;
-    }
-    .hero-pattern {
-      position: absolute; inset: 0;
-      background-image:
-        radial-gradient(circle at 70% 30%, rgba(249,115,22,0.18) 0%, transparent 55%),
-        radial-gradient(circle at 15% 75%, rgba(45,145,88,0.25) 0%, transparent 45%);
-    }
-    .hero-dots {
-      position: absolute; inset: 0;
-      background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
-      background-size: 28px 28px;
-    }
-    .hero-inner {
-      position: relative; z-index: 2;
-      max-width: 1200px; margin: 0 auto; padding: 4rem 5vw;
-      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(249,115,22,0.15); border: 1px solid rgba(249,115,22,0.4);
-      color: var(--saffron-light); padding: 0.4rem 1rem;
-      font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
-      font-weight: 600; margin-bottom: 1.5rem;
-    }
-    .hero-badge::before { content: '🎓'; font-size: 0.9rem; }
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 5vw, 4.2rem);
-      color: var(--white); line-height: 1.1;
-      margin-bottom: 0.5rem;
-    }
-    h1 .school-name { color: var(--saffron); display: block; }
-    .hero-affil {
-      font-size: 0.9rem; color: rgba(255,255,255,0.55);
-      letter-spacing: 0.06em; margin-bottom: 1.5rem;
-      border-left: 3px solid var(--saffron); padding-left: 1rem;
-    }
-    .hero-desc {
-      color: rgba(255,255,255,0.72);
-      font-size: 1.05rem; line-height: 1.78; max-width: 480px; margin-bottom: 2.5rem;
-    }
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--saffron); color: var(--green-dark);
-      font-weight: 700; font-size: 0.9rem; letter-spacing: 0.06em;
-      text-transform: uppercase; padding: 0.85rem 1.8rem;
-      text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .btn-primary:hover { background: var(--saffron-light); transform: translateY(-2px); }
-    .btn-secondary {
-      border: 2px solid rgba(255,255,255,0.3); color: var(--white);
-      font-weight: 500; font-size: 0.9rem; letter-spacing: 0.06em;
-      text-transform: uppercase; padding: 0.85rem 1.8rem;
-      text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .btn-secondary:hover { border-color: var(--saffron); background: rgba(249,115,22,0.1); }
-
-    /* hero right cards */
-    .hero-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .hcard {
-      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-      padding: 1.5rem 1.2rem; position: relative; overflow: hidden;
-      animation: slideUp 0.6s ease both;
-    }
-    .hcard::before {
-      content: ''; position: absolute; top: 0; left: 0;
-      width: 100%; height: 3px; background: var(--saffron);
-    }
-    .hcard:nth-child(1) { animation-delay: 0.1s; }
-    .hcard:nth-child(2) { animation-delay: 0.2s; }
-    .hcard:nth-child(3) { animation-delay: 0.3s; }
-    .hcard:nth-child(4) { animation-delay: 0.4s; }
-    .hcard-icon { font-size: 1.8rem; margin-bottom: 0.6rem; }
-    .hcard-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem; color: var(--saffron); line-height: 1;
-    }
-    .hcard-label { font-size: 0.78rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.3rem; }
-
-    /* ── ADMISSION BANNER ── */
-    .admission-banner {
-      background: var(--saffron);
-      padding: 1.2rem 5vw;
-      display: flex; align-items: center; justify-content: center; gap: 1.5rem;
-      flex-wrap: wrap; text-align: center;
-    }
-    .admission-banner strong {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem; color: var(--green-dark);
-    }
-    .admission-banner span { font-size: 0.92rem; color: var(--green-dark); opacity: 0.85; }
-    .admission-banner a {
-      background: var(--green-dark); color: var(--white);
-      padding: 0.5rem 1.4rem; font-weight: 600; text-decoration: none;
-      font-size: 0.88rem; letter-spacing: 0.06em; text-transform: uppercase;
-      transition: background 0.2s;
-    }
-    .admission-banner a:hover { background: var(--green); }
-
-    /* ── SECTION BASE ── */
-    section { padding: 6rem 5vw; }
-    .sec-inner { max-width: 1200px; margin: 0 auto; }
-    .sec-tag {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em;
-      text-transform: uppercase; color: var(--green);
-      margin-bottom: 0.8rem;
-    }
-    .sec-tag::before { content: ''; width: 20px; height: 2px; background: var(--green); display: inline-block; }
-    .sec-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      color: var(--navy); line-height: 1.1; margin-bottom: 1rem;
-    }
-
-    /* ── ABOUT ── */
-    #about { background: var(--white); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 3.5rem; }
-    .about-card {
-      background: var(--cream); border-left: 4px solid var(--green);
-      padding: 1.5rem 1.5rem; margin-bottom: 1.2rem;
-    }
-    .about-card-title { font-weight: 700; font-size: 0.95rem; color: var(--green); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
-    .about-card p { font-size: 0.92rem; color: var(--gray); line-height: 1.7; }
-    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 1.5rem; }
-    .why-item {
-      display: flex; align-items: center; gap: 0.6rem;
-      background: var(--light); padding: 0.75rem 1rem;
-      font-size: 0.88rem; color: var(--navy); font-weight: 500;
-    }
-    .why-item::before { content: '✅'; font-size: 0.9rem; }
-    .about-right p { color: var(--gray); font-size: 1rem; line-height: 1.8; margin-bottom: 1.2rem; }
-    .school-visual {
-      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
-      padding: 3rem 2rem; text-align: center; position: relative; overflow: hidden;
-      margin-bottom: 1.5rem;
-    }
-    .school-visual::before {
-      content: ''; position: absolute; inset: 0;
-      background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
-      background-size: 20px 20px;
-    }
-    .school-visual-icon { font-size: 4rem; position: relative; z-index: 1; margin-bottom: 0.8rem; }
-    .school-visual-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem; color: var(--white); position: relative; z-index: 1;
-    }
-    .school-visual-sub { font-size: 0.8rem; color: rgba(255,255,255,0.6); position: relative; z-index: 1; margin-top: 0.3rem; }
-    .affil-tag {
-      background: var(--saffron); color: var(--green-dark);
-      font-size: 0.78rem; font-weight: 700; padding: 0.4rem 1rem;
-      display: inline-block; letter-spacing: 0.08em; margin-top: 0.8rem; position: relative; z-index: 1;
-    }
-
-    /* ── PROGRAMS ── */
-    #programs { background: var(--cream); }
-    .programs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; margin-top: 3rem; }
-    .prog-card {
-      background: var(--white); border: 1px solid #e2e8f0;
-      padding: 2rem 1.5rem; text-align: center;
-      border-top: 4px solid var(--green);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .prog-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(26,107,60,0.12); }
-    .prog-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-    .prog-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--navy); margin-bottom: 0.4rem; }
-    .prog-range { font-size: 0.82rem; color: var(--green); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.8rem; }
-    .prog-desc { font-size: 0.88rem; color: var(--gray); line-height: 1.6; }
-
-    /* ── FACILITIES ── */
-    #facilities { background: var(--green-dark); }
-    #facilities .sec-title { color: var(--white); }
-    #facilities .sec-tag { color: var(--saffron); }
-    #facilities .sec-tag::before { background: var(--saffron); }
-    .fac-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 3rem; }
-    .fac-item {
-      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-      padding: 1.8rem 1.4rem;
-      transition: background 0.2s;
-    }
-    .fac-item:hover { background: rgba(255,255,255,0.1); }
-    .fac-icon { font-size: 2rem; margin-bottom: 0.8rem; }
-    .fac-name { font-weight: 700; color: var(--white); font-size: 1rem; margin-bottom: 0.4rem; }
-    .fac-desc { font-size: 0.86rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
-
-    /* ── ACTIVITIES ── */
-    #activities { background: var(--white); }
-    .act-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-top: 3rem; }
-    .act-item {
-      background: var(--light); padding: 1.5rem 1rem; text-align: center;
-      border-bottom: 3px solid transparent; transition: border-color 0.2s, transform 0.2s;
-    }
-    .act-item:hover { border-color: var(--saffron); transform: translateY(-3px); }
-    .act-item .act-icon { font-size: 2rem; margin-bottom: 0.6rem; }
-    .act-item .act-name { font-weight: 600; font-size: 0.9rem; color: var(--navy); }
-
-    /* ── ADMISSIONS ── */
-    #admissions { background: var(--cream); }
-    .adm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; align-items: start; }
-    .adm-steps { display: flex; flex-direction: column; gap: 1.2rem; }
-    .adm-step {
-      display: flex; gap: 1.2rem; align-items: flex-start;
-      background: var(--white); padding: 1.4rem 1.4rem;
-      border-left: 4px solid var(--green);
-    }
-    .step-num {
-      width: 38px; height: 38px; flex-shrink: 0;
-      background: var(--green); color: var(--white);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 900;
-    }
-    .step-title { font-weight: 700; color: var(--navy); margin-bottom: 0.2rem; font-size: 0.95rem; }
-    .step-desc { font-size: 0.86rem; color: var(--gray); line-height: 1.5; }
-    .adm-highlight {
-      background: var(--green-dark); padding: 2.5rem 2rem; color: var(--white);
-    }
-    .adm-highlight h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.2rem; color: var(--saffron); }
-    .topper { display: flex; align-items: center; gap: 0.8rem; padding: 0.9rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .topper:last-child { border-bottom: none; }
-    .topper-rank { font-size: 1.5rem; }
-    .topper-name { font-weight: 600; font-size: 0.95rem; }
-    .topper-score { color: var(--saffron); font-weight: 700; font-size: 0.9rem; margin-left: auto; }
-    .cbse-note { margin-top: 1.5rem; background: rgba(249,115,22,0.15); border: 1px solid rgba(249,115,22,0.3); padding: 1rem 1.2rem; font-size: 0.88rem; color: rgba(255,255,255,0.8); }
-
-    /* ── CONTACT ── */
-    #contact { background: var(--navy); position: relative; overflow: hidden; }
-    #contact::after {
-      content: ''; position: absolute; bottom: -100px; right: -100px;
-      width: 400px; height: 400px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(26,107,60,0.2) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    #contact .sec-title { color: var(--white); }
-    #contact .sec-tag { color: var(--saffron); }
-    #contact .sec-tag::before { background: var(--saffron); }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3.5rem; align-items: start; }
-    .contact-info-items { display: flex; flex-direction: column; gap: 1.4rem; margin-top: 1.5rem; }
-    .ci {
-      display: flex; gap: 1rem; align-items: flex-start;
-      background: rgba(255,255,255,0.05); padding: 1.2rem 1.2rem;
-      border-left: 3px solid var(--green-light);
-    }
-    .ci-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
-    .ci-label { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--saffron); font-weight: 600; margin-bottom: 0.3rem; }
-    .ci-value { color: var(--white); font-size: 0.95rem; line-height: 1.55; }
-    .ci-value a { color: var(--saffron-light); text-decoration: none; }
-    .ci-value a:hover { text-decoration: underline; }
-    .contact-form { display: flex; flex-direction: column; gap: 1.1rem; }
-    .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .cf-group { display: flex; flex-direction: column; gap: 0.4rem; }
-    .cf-group label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); font-weight: 500; }
-    .cf-group input, .cf-group textarea, .cf-group select {
-      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
-      color: var(--white); padding: 0.8rem 1rem;
-      font-family: 'Outfit', sans-serif; font-size: 0.94rem;
-      outline: none; transition: border-color 0.2s; resize: none;
-    }
-    .cf-group input::placeholder, .cf-group textarea::placeholder { color: rgba(255,255,255,0.25); }
-    .cf-group select option { background: var(--navy); }
-    .cf-group input:focus, .cf-group textarea:focus, .cf-group select:focus { border-color: var(--saffron); }
-    .cf-submit {
-      background: var(--saffron); color: var(--green-dark); border: none; cursor: pointer;
-      font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.9rem;
-      letter-spacing: 0.08em; text-transform: uppercase; padding: 0.95rem 2rem;
-      display: flex; align-items: center; gap: 0.5rem; width: fit-content;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .cf-submit:hover { background: var(--saffron-light); transform: translateY(-2px); }
-    .cf-success {
-      display: none; background: rgba(26,107,60,0.2);
-      border: 1px solid var(--green-light); color: #86efac;
-      padding: 0.9rem 1.1rem; font-size: 0.9rem;
-    }
-    .hours-box {
-      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-      padding: 1.2rem 1.5rem; margin-top: 1.2rem;
-    }
-    .hours-box h4 { color: var(--saffron); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.6rem; }
-    .hours-box p { color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6; }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #060d12; color: rgba(255,255,255,0.3);
-      text-align: center; padding: 2rem 5vw;
-      font-size: 0.83rem; border-top: 1px solid rgba(255,255,255,0.06);
-    }
-    footer strong { color: var(--saffron); }
-
-    /* ── ANIMATIONS ── */
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .fade { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .fade.in { opacity: 1; transform: none; }
-
-    /* ── MOBILE ── */
-    @media (max-width: 820px) {
-      .hero-inner, .about-grid, .contact-grid, .adm-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .fac-grid { grid-template-columns: 1fr 1fr; }
-      .why-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-      .hero-cards { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 500px) {
-      .fac-grid { grid-template-columns: 1fr; }
-      .cf-row { grid-template-columns: 1fr; }
-    }
-  </style>
+@media (max-width: 820px) {
+  .hero-inner, .about-grid, .contact-grid, .adm-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .fac-grid { grid-template-columns: 1fr 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .hero-cards { grid-template-columns: 1fr 1fr; }
+  #gallery-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important; }
+  .gal-item.tall { grid-row: span 1 !important; }
+  .gal-item.tall img { height: 220px; }
+}
+@media (max-width: 500px) {
+  .fac-grid { grid-template-columns: 1fr; }
+  .cf-row { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 <body>
 
@@ -385,17 +200,14 @@
 <nav>
   <a href="#home" class="nav-brand">
     <div class="nav-emblem">P</div>
-    <div class="nav-name">
-      Pallavi Progressive
-      <span>International School · CBSE</span>
-    </div>
+    <div class="nav-name">Pallavi Progressive<span>International School · CBSE</span></div>
   </a>
   <ul class="nav-links">
     <li><a href="#home">Home</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#programs">Programs</a></li>
     <li><a href="#facilities">Facilities</a></li>
-    <li><a href="#activities">Activities</a></li>
+    <li><a href="#gallery">Gallery</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#admissions" class="nav-admit">Admissions</a></li>
   </ul>
@@ -408,41 +220,19 @@
   <div class="hero-inner">
     <div>
       <div class="hero-badge">Admissions Open 2026–27</div>
-      <h1>
-        Welcome to
-        <span class="school-name">Pallavi Progressive International School</span>
-      </h1>
+      <h1>Welcome to<span class="school-name">Pallavi Progressive International School</span></h1>
       <p class="hero-affil">Affiliated to CBSE · Affiliation No: 3630287 · Thumkunta, Telangana</p>
-      <p class="hero-desc">
-        Nurturing young minds through quality education, innovation, values, and holistic development.
-        Our mission is to empower every child to achieve academic excellence and become a confident global citizen.
-      </p>
+      <p class="hero-desc">Nurturing young minds through quality education, innovation, values, and holistic development. Our mission is to empower every child to achieve academic excellence and become a confident global citizen.</p>
       <div class="hero-btns">
         <a href="#admissions" class="btn-primary">Apply Now →</a>
-        <a href="#about" class="btn-secondary">Learn More</a>
+        <a href="#gallery" class="btn-secondary">View Gallery</a>
       </div>
     </div>
     <div class="hero-cards">
-      <div class="hcard">
-        <div class="hcard-icon">🏆</div>
-        <div class="hcard-num">100%</div>
-        <div class="hcard-label">CBSE X Result 2025-26</div>
-      </div>
-      <div class="hcard">
-        <div class="hcard-icon">📚</div>
-        <div class="hcard-num">PP–X</div>
-        <div class="hcard-label">Grades Offered</div>
-      </div>
-      <div class="hcard">
-        <div class="hcard-icon">🎨</div>
-        <div class="hcard-num">7+</div>
-        <div class="hcard-label">Co-Curricular Activities</div>
-      </div>
-      <div class="hcard">
-        <div class="hcard-icon">🌍</div>
-        <div class="hcard-num">CBSE</div>
-        <div class="hcard-label">& SSC Curriculum</div>
-      </div>
+      <div class="hcard"><div class="hcard-icon">🏆</div><div class="hcard-num">100%</div><div class="hcard-label">CBSE X Result 2025-26</div></div>
+      <div class="hcard"><div class="hcard-icon">📚</div><div class="hcard-num">PP–X</div><div class="hcard-label">Grades Offered</div></div>
+      <div class="hcard"><div class="hcard-icon">🎨</div><div class="hcard-num">7+</div><div class="hcard-label">Co-Curricular Activities</div></div>
+      <div class="hcard"><div class="hcard-icon">🌍</div><div class="hcard-num">CBSE</div><div class="hcard-label">&amp; SSC Curriculum</div></div>
     </div>
   </div>
 </section>
@@ -473,7 +263,7 @@
         </div>
         <div class="about-card">
           <div class="about-card-title">🎯 Mission</div>
-          <p>Foster academic excellence through innovative teaching. Encourage critical thinking and creativity. Develop leadership and communication skills. Promote integrity, respect, and responsibility. Create a safe and inclusive learning environment.</p>
+          <p>Foster academic excellence through innovative teaching. Encourage critical thinking and creativity. Develop leadership and communication skills. Promote integrity, respect, and responsibility.</p>
         </div>
       </div>
       <div class="fade">
@@ -482,11 +272,11 @@
         <p style="font-weight:600; color:var(--green); margin-bottom:0.8rem;">Why Parents Choose Us</p>
         <div class="why-grid">
           <div class="why-item">Student-Centered Learning</div>
-          <div class="why-item">Experienced & Dedicated Faculty</div>
+          <div class="why-item">Experienced &amp; Dedicated Faculty</div>
           <div class="why-item">Smart Digital Classrooms</div>
           <div class="why-item">Holistic Development Programs</div>
-          <div class="why-item">Safe & Secure Campus</div>
-          <div class="why-item">Sports & Co-Curricular Excellence</div>
+          <div class="why-item">Safe &amp; Secure Campus</div>
+          <div class="why-item">Sports &amp; Co-Curricular Excellence</div>
         </div>
       </div>
     </div>
@@ -498,34 +288,12 @@
   <div class="sec-inner">
     <div class="sec-tag">Academic Programs</div>
     <div class="sec-title">Programs Offered</div>
-    <p style="color:var(--gray); max-width:580px; margin-top:0.8rem; line-height:1.75;">
-      Our curriculum is designed to develop strong foundations in academics while encouraging exploration, innovation, and independent thinking.
-    </p>
+    <p style="color:var(--gray); max-width:580px; margin-top:0.8rem; line-height:1.75;">Our curriculum is designed to develop strong foundations in academics while encouraging exploration, innovation, and independent thinking.</p>
     <div class="programs-grid fade">
-      <div class="prog-card">
-        <div class="prog-icon">🌱</div>
-        <div class="prog-name">Pre-Primary</div>
-        <div class="prog-range">Nursery · PP1 · PP2</div>
-        <div class="prog-desc">A play-based, nurturing environment that builds the foundation for lifelong learning.</div>
-      </div>
-      <div class="prog-card">
-        <div class="prog-icon">📗</div>
-        <div class="prog-name">Primary School</div>
-        <div class="prog-range">Grades I to V</div>
-        <div class="prog-desc">Core academics with creative activities, building strong literacy and numeracy skills.</div>
-      </div>
-      <div class="prog-card">
-        <div class="prog-icon">📘</div>
-        <div class="prog-name">Middle School</div>
-        <div class="prog-range">Grades VI to VIII</div>
-        <div class="prog-desc">Subject specialization begins with emphasis on analytical thinking and leadership.</div>
-      </div>
-      <div class="prog-card">
-        <div class="prog-icon">📙</div>
-        <div class="prog-name">Secondary School</div>
-        <div class="prog-range">Grades IX to X</div>
-        <div class="prog-desc">CBSE & SSC curriculum with focused preparation for board examinations and future goals.</div>
-      </div>
+      <div class="prog-card"><div class="prog-icon">🌱</div><div class="prog-name">Pre-Primary</div><div class="prog-range">Nursery · PP1 · PP2</div><div class="prog-desc">A play-based, nurturing environment that builds the foundation for lifelong learning.</div></div>
+      <div class="prog-card"><div class="prog-icon">📗</div><div class="prog-name">Primary School</div><div class="prog-range">Grades I to V</div><div class="prog-desc">Core academics with creative activities, building strong literacy and numeracy skills.</div></div>
+      <div class="prog-card"><div class="prog-icon">📘</div><div class="prog-name">Middle School</div><div class="prog-range">Grades VI to VIII</div><div class="prog-desc">Subject specialization begins with emphasis on analytical thinking and leadership.</div></div>
+      <div class="prog-card"><div class="prog-icon">📙</div><div class="prog-name">Secondary School</div><div class="prog-range">Grades IX to X</div><div class="prog-desc">CBSE &amp; SSC curriculum with focused preparation for board examinations and future goals.</div></div>
     </div>
   </div>
 </section>
@@ -536,36 +304,12 @@
     <div class="sec-tag">Campus</div>
     <div class="sec-title">World-Class Facilities</div>
     <div class="fac-grid fade">
-      <div class="fac-item">
-        <div class="fac-icon">🖥️</div>
-        <div class="fac-name">Smart Classrooms</div>
-        <div class="fac-desc">Technology-enabled learning spaces for interactive and engaging education.</div>
-      </div>
-      <div class="fac-item">
-        <div class="fac-icon">🔬</div>
-        <div class="fac-name">Science Laboratories</div>
-        <div class="fac-desc">Well-equipped labs encouraging practical, hands-on scientific learning.</div>
-      </div>
-      <div class="fac-item">
-        <div class="fac-icon">📚</div>
-        <div class="fac-name">Library</div>
-        <div class="fac-desc">A rich collection of books and digital resources to fuel curiosity.</div>
-      </div>
-      <div class="fac-item">
-        <div class="fac-icon">💻</div>
-        <div class="fac-name">Computer Lab</div>
-        <div class="fac-desc">Modern systems for digital literacy, coding, and innovation.</div>
-      </div>
-      <div class="fac-item">
-        <div class="fac-icon">⚽</div>
-        <div class="fac-name">Sports Facilities</div>
-        <div class="fac-desc">Indoor and outdoor sports promoting fitness, discipline, and teamwork.</div>
-      </div>
-      <div class="fac-item">
-        <div class="fac-icon">🚌</div>
-        <div class="fac-name">Safe Transportation</div>
-        <div class="fac-desc">Reliable school transportation with robust safety measures for all students.</div>
-      </div>
+      <div class="fac-item"><div class="fac-icon">🖥️</div><div class="fac-name">Smart Classrooms</div><div class="fac-desc">Technology-enabled learning spaces for interactive and engaging education.</div></div>
+      <div class="fac-item"><div class="fac-icon">🔬</div><div class="fac-name">Science Laboratories</div><div class="fac-desc">Well-equipped labs encouraging practical, hands-on scientific learning.</div></div>
+      <div class="fac-item"><div class="fac-icon">📚</div><div class="fac-name">Library</div><div class="fac-desc">A rich collection of books and digital resources to fuel curiosity.</div></div>
+      <div class="fac-item"><div class="fac-icon">💻</div><div class="fac-name">Computer Lab</div><div class="fac-desc">Modern systems for digital literacy, coding, and innovation.</div></div>
+      <div class="fac-item"><div class="fac-icon">⚽</div><div class="fac-name">Sports Facilities</div><div class="fac-desc">Indoor and outdoor sports promoting fitness, discipline, and teamwork.</div></div>
+      <div class="fac-item"><div class="fac-icon">🚌</div><div class="fac-name">Safe Transportation</div><div class="fac-desc">Reliable school transportation with robust safety measures for all students.</div></div>
     </div>
   </div>
 </section>
@@ -575,13 +319,11 @@
   <div class="sec-inner">
     <div class="sec-tag">Beyond Academics</div>
     <div class="sec-title">Co-Curricular Activities</div>
-    <p style="color:var(--gray); max-width:520px; margin-top:0.8rem; line-height:1.75;">
-      We believe education extends beyond the classroom. Our activities build confidence, creativity, and character.
-    </p>
+    <p style="color:var(--gray); max-width:520px; margin-top:0.8rem; line-height:1.75;">We believe education extends beyond the classroom. Our activities build confidence, creativity, and character.</p>
     <div class="act-grid fade">
-      <div class="act-item"><div class="act-icon">🎨</div><div class="act-name">Arts & Crafts</div></div>
-      <div class="act-item"><div class="act-icon">🎵</div><div class="act-name">Music & Dance</div></div>
-      <div class="act-item"><div class="act-icon">🎭</div><div class="act-name">Drama & Theatre</div></div>
+      <div class="act-item"><div class="act-icon">🎨</div><div class="act-name">Arts &amp; Crafts</div></div>
+      <div class="act-item"><div class="act-icon">🎵</div><div class="act-name">Music &amp; Dance</div></div>
+      <div class="act-item"><div class="act-icon">🎭</div><div class="act-name">Drama &amp; Theatre</div></div>
       <div class="act-item"><div class="act-icon">🏆</div><div class="act-name">Sports Competitions</div></div>
       <div class="act-item"><div class="act-icon">🧩</div><div class="act-name">STEM Activities</div></div>
       <div class="act-item"><div class="act-icon">🎤</div><div class="act-name">Public Speaking</div></div>
@@ -589,6 +331,153 @@
     </div>
   </div>
 </section>
+
+<!-- ══════════════════════════════════ -->
+<!-- PHOTO GALLERY -->
+<!-- ══════════════════════════════════ -->
+<section id="gallery">
+  <div class="sec-inner">
+    <div class="sec-tag">School Life</div>
+    <div class="sec-title">Life at Pallavi Progressive</div>
+    <p style="color:var(--gray); max-width:580px; margin-top:0.8rem; line-height:1.75; margin-bottom:2.5rem;">
+      A glimpse into the vibrant activities, achievements, celebrations, and everyday moments that make our school community special.
+    </p>
+
+    <!-- Filter Tabs -->
+    <div style="display:flex; gap:0.7rem; flex-wrap:wrap; margin-bottom:2rem;">
+      <button onclick="filterGallery('all')" class="gal-btn active" id="btn-all">All Photos</button>
+      <button onclick="filterGallery('achievements')" class="gal-btn" id="btn-achievements">🏆 Achievements</button>
+      <button onclick="filterGallery('events')" class="gal-btn" id="btn-events">🎉 Events &amp; Festivals</button>
+      <button onclick="filterGallery('academics')" class="gal-btn" id="btn-academics">📚 Academics</button>
+      <button onclick="filterGallery('community')" class="gal-btn" id="btn-community">🤝 Community</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div id="gallery-grid" style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1rem;">
+
+      <!-- TALL: Cricket Achievement spans 2 rows -->
+      <div class="gal-item achievements tall" style="grid-row:span 2"
+           data-caption="Likith Chowdary — Grade IX student selected for National-Level Cricket Tournament. At Pallavi Progressive CBSE School, we nurture students in both academics and extracurriculars for holistic development. 🏏🏆">
+        <img src="https://raw.githubusercontent.com/sandyasai/pallavi-progressive-international-school-.github.io/main/147747.jpg" alt="Cricket achievement - Likith Chowdary" loading="lazy"/>
+        <div class="gal-overlay"><span>🏏 National Cricket Selection — Likith Chowdary, Grade IX</span></div>
+      </div>
+
+      <div class="gal-item events"
+           data-caption="Christmas celebration performance — students and teachers posed in front of the Merry Christmas stage decoration at Pallavi Progressive. 🎄">
+        <img src="https://raw.githubusercontent.com/sandyasai/pallavi-progressive-international-school-.github.io/main/147753.jpg" alt="Christmas celebration group photo" loading="lazy"/>
+        <div class="gal-overlay"><span>🎄 Christmas Celebration</span></div>
+      </div>
+
+      <div class="gal-item events"
+           data-caption="Students in beautiful angel and prince costumes performing during the school's Christmas event on stage. 🎭">
+        <img src="https://raw.githubusercontent.com/sandyasai/pallavi-progressive-international-school-.github.io/main/147754.jpg" alt="Christmas costume performance" loading="lazy"/>
+        <div class="gal-overlay"><span>🎭 Christmas Stage Performance</span></div>
+      </div>
+
+      <div class="gal-item academics"
+           data-caption="K. Ananya (IX Class) presenting her World's Wetlands Day cloud-shaped poster with the message 'Save the Future of the Earth'. 🌿">
+        <img src="https://raw.githubusercontent.com/sandyasai/pallavi-progressive-international-school-.github.io/main/147774.jpg" alt="World Wetlands Day - K. Ananya" loading="lazy"/>
+        <div class="gal-overlay"><span>🌿 World Wetlands Day — K. Ananya, Class IX</span></div>
+      </div>
+
+      <div class="gal-item academics"
+           data-caption="Science and project exhibition — students presenting creative models and educational displays to teachers on the school grounds. 🔬">
+        <img src="https://raw.githubusercontent.com/sandyasai/pallavi-progressive-international-school-.github.io/main/147796.jpg" alt="Science project exhibition" loading="lazy"/>
+        <div class="gal-overlay"><span>🔬 Science &amp; Project Exhibition</span></div>
+      </div>
+
+      <div class="gal-item achievements"
+           data-caption="Annual Day trophy ceremony — a student triumphantly raises the trophy, surrounded by proud classmates at Pallavi Progressive High School. 🏆">
+        <img src="https://raw.githubusercontent.com/sandyasai/pallavi-progressive-international-school-.github.io/main/147819.jpg" alt="Annual Day trophy ceremony" loading="lazy"/>
+        <div class="gal-overlay"><span>🏆 Annual Day — Trophy Presentation</span></div>
+      </div>
+
+      <div class="gal-item community"
+           data-caption="Families participating in the school's Pada Pooja ceremony — a traditional ritual to honour elders and teachers. 🙏">
+        <img src="https://raw.githubusercontent.com/sandyasai/pallavi-progressive-international-school-.github.io/main/147786.jpg" alt="Pada Pooja - parents and families" loading="lazy"/>
+        <div class="gal-overlay"><span>🙏 Pada Pooja — Community Ceremony</span></div>
+      </div>
+
+      <div class="gal-item community"
+           data-caption="A warm family moment during the school's community gathering — a mother and her two children pose together, celebrating the occasion. 👨‍👩‍👧">
+        <img src="https://raw.githubusercontent.com/sandyasai/pallavi-progressive-international-school-.github.io/main/147777.jpg" alt="Family at community event" loading="lazy"/>
+        <div class="gal-overlay"><span>👨‍👩‍👧 Family Community Gathering</span></div>
+      </div>
+
+      <div class="gal-item academics"
+           data-caption="Students in school uniform on an educational excursion, posing in front of a colourful Saraswati statue with accompanying teachers. 🚌">
+        <img src="https://raw.githubusercontent.com/sandyasai/pallavi-progressive-international-school-.github.io/main/147744.jpg" alt="Educational excursion to temple" loading="lazy"/>
+        <div class="gal-overlay"><span>🚌 Educational Excursion</span></div>
+      </div>
+
+      <div class="gal-item academics"
+           data-caption="Teacher training session — Capacity Building Programme (CBP) Guru Dakshata induction training in progress, hosted at Pallavi Progressive High School. 📖">
+        <img src="https://raw.githubusercontent.com/sandyasai/pallavi-progressive-international-school-.github.io/main/147755.jpg" alt="Teacher training - CBP Guru Dakshata" loading="lazy"/>
+        <div class="gal-overlay"><span>📖 Guru Dakshata — Teacher Training CBP</span></div>
+      </div>
+
+      <div class="gal-item events"
+           data-caption="Staff and teachers group photo during Christmas celebrations at Pallavi Progressive — festive spirit and togetherness on stage. 🎅">
+        <img src="https://raw.githubusercontent.com/sandyasai/pallavi-progressive-international-school-.github.io/main/147756.jpg" alt="Teachers Christmas group photo" loading="lazy"/>
+        <div class="gal-overlay"><span>🎅 Staff Christmas Celebration</span></div>
+      </div>
+
+      <div class="gal-item achievements"
+           data-caption="Felicitation ceremony — a police officer receiving a memento and appreciation from school management on the main stage. 🎗️">
+        <img src="https://raw.githubusercontent.com/sandyasai/pallavi-progressive-international-school-.github.io/main/147745.jpg" alt="Felicitation ceremony with police officer" loading="lazy"/>
+        <div class="gal-overlay"><span>🎗️ Guest Felicitation Ceremony</span></div>
+      </div>
+
+      <div class="gal-item events"
+           data-caption="CBP stage presentation — school principal and students on stage during the Capacity Building Programme event. 🎤">
+        <img src="https://raw.githubusercontent.com/sandyasai/pallavi-progressive-international-school-.github.io/main/147746.jpg" alt="CBP stage event with principal" loading="lazy"/>
+        <div class="gal-overlay"><span>🎤 CBP Stage Event</span></div>
+      </div>
+
+      <div class="gal-item events"
+           data-caption="Culinary activity day — young students dressed in chef outfits manning a pani puri food stall, showcasing their cooking talents. 👨‍🍳">
+        <img src="https://raw.githubusercontent.com/sandyasai/pallavi-progressive-international-school-.github.io/main/147795.jpg" alt="Culinary activity - student chefs" loading="lazy"/>
+        <div class="gal-overlay"><span>👨‍🍳 Culinary Activity Day</span></div>
+      </div>
+
+      <div class="gal-item community"
+           data-caption="Young children performing the touching Pada Pooja ritual — kneeling to wash the feet of elders, a beautiful tradition of reverence. 🙏">
+        <img src="https://raw.githubusercontent.com/sandyasai/pallavi-progressive-international-school-.github.io/main/147794.jpg" alt="Children performing Pada Pooja" loading="lazy"/>
+        <div class="gal-overlay"><span>🙏 Pada Pooja — Honouring Elders</span></div>
+      </div>
+
+      <div class="gal-item achievements"
+           data-caption="Annual Day prize distribution ceremony — students holding trophies and certificates on stage at Pallavi Progressive. 🌟">
+        <img src="https://raw.githubusercontent.com/sandyasai/pallavi-progressive-international-school-.github.io/main/147785.jpg" alt="Annual Day prize distribution" loading="lazy"/>
+        <div class="gal-overlay"><span>🌟 Annual Day — Prize Distribution</span></div>
+      </div>
+
+      <div class="gal-item events"
+           data-caption="Christmas Day celebration with young kindergarten children wearing festive Santa hats, seated on stage with teachers. 🎅">
+        <img src="https://raw.githubusercontent.com/sandyasai/pallavi-progressive-international-school-.github.io/main/147748.jpg" alt="Kindergarten Christmas celebration" loading="lazy"/>
+        <div class="gal-overlay"><span>🎅 Christmas — Little Stars</span></div>
+      </div>
+
+      <div class="gal-item academics"
+           data-caption="Interactive classroom session — a teacher in a pink saree conducting a lesson using a smart board, with engaged students at their desks. 🖥️">
+        <img src="https://raw.githubusercontent.com/sandyasai/pallavi-progressive-international-school-.github.io/main/147793.jpg" alt="Smart classroom teaching session" loading="lazy"/>
+        <div class="gal-overlay"><span>🖥️ Smart Classroom Session</span></div>
+      </div>
+
+    </div><!-- /gallery-grid -->
+
+    <p style="color:var(--gray); font-size:0.85rem; margin-top:1.5rem; text-align:center;">
+      Click any photo to view full size. Follow us to stay updated on school events!
+    </p>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox()">
+  <img id="lb-img" src="" alt="" style="max-width:90vw; max-height:80vh; object-fit:contain; box-shadow:0 0 60px rgba(0,0,0,0.8);"/>
+  <p id="lb-caption" style="color:rgba(255,255,255,0.82); margin-top:1.2rem; font-size:0.95rem; text-align:center; max-width:620px; line-height:1.65;"></p>
+  <button onclick="event.stopPropagation(); closeLightbox()" style="position:fixed; top:1.5rem; right:1.5rem; background:rgba(255,255,255,0.1); border:2px solid rgba(255,255,255,0.3); color:white; font-size:1.3rem; width:44px; height:44px; cursor:pointer; display:flex; align-items:center; justify-content:center; border-radius:2px; font-family:'Outfit',sans-serif;">✕</button>
+</div>
 
 <!-- ADMISSIONS -->
 <section id="admissions">
@@ -599,34 +488,10 @@
       <div>
         <p style="color:var(--gray); line-height:1.78; margin-bottom:2rem;">Give your child the opportunity to learn, grow, and succeed in our nurturing educational environment. Our streamlined admission process makes joining simple.</p>
         <div class="adm-steps">
-          <div class="adm-step">
-            <div class="step-num">1</div>
-            <div>
-              <div class="step-title">Submit Application Form</div>
-              <div class="step-desc">Fill out and submit the admission inquiry form online or visit our school.</div>
-            </div>
-          </div>
-          <div class="adm-step">
-            <div class="step-num">2</div>
-            <div>
-              <div class="step-title">Campus Interaction</div>
-              <div class="step-desc">Schedule a visit to meet our faculty and experience our campus firsthand.</div>
-            </div>
-          </div>
-          <div class="adm-step">
-            <div class="step-num">3</div>
-            <div>
-              <div class="step-title">Document Verification</div>
-              <div class="step-desc">Submit required documents: birth certificate, previous report cards, and photographs.</div>
-            </div>
-          </div>
-          <div class="adm-step">
-            <div class="step-num">4</div>
-            <div>
-              <div class="step-title">Admission Confirmation</div>
-              <div class="step-desc">Receive your welcome letter and complete fee payment to confirm admission.</div>
-            </div>
-          </div>
+          <div class="adm-step"><div class="step-num">1</div><div><div class="step-title">Submit Application Form</div><div class="step-desc">Fill out and submit the admission inquiry form online or visit our school.</div></div></div>
+          <div class="adm-step"><div class="step-num">2</div><div><div class="step-title">Campus Interaction</div><div class="step-desc">Schedule a visit to meet our faculty and experience our campus firsthand.</div></div></div>
+          <div class="adm-step"><div class="step-num">3</div><div><div class="step-title">Document Verification</div><div class="step-desc">Submit required documents: birth certificate, previous report cards, and photographs.</div></div></div>
+          <div class="adm-step"><div class="step-num">4</div><div><div class="step-title">Admission Confirmation</div><div class="step-desc">Receive your welcome letter and complete fee payment to confirm admission.</div></div></div>
         </div>
       </div>
       <div class="adm-highlight">
@@ -637,10 +502,7 @@
         <div class="topper"><span class="topper-rank">🥉</span><span class="topper-name">G. Rohit</span><span class="topper-score">419 / 500</span></div>
         <div class="topper"><span class="topper-rank">⭐</span><span class="topper-name">Karan Patel</span><span class="topper-score">417 / 500</span></div>
         <div class="topper"><span class="topper-rank">⭐</span><span class="topper-name">P. Dheekshitha</span><span class="topper-score">415 / 500</span></div>
-        <div class="cbse-note">
-          📞 To enquire about admissions, call us at<br>
-          <strong style="color:var(--saffron);">+91 9133649900 / 9652403939</strong>
-        </div>
+        <div class="cbse-note">📞 To enquire about admissions, call us at<br><strong style="color:var(--saffron);">+91 9133649900 / 9652403939</strong></div>
       </div>
     </div>
   </div>
@@ -653,72 +515,23 @@
     <div class="sec-title">Contact Us</div>
     <div class="contact-grid">
       <div class="fade">
-        <p style="color:rgba(255,255,255,0.6); font-size:1rem; line-height:1.78; margin-bottom:0.5rem;">
-          We'd love to hear from you. Reach out for admissions, general queries, or to schedule a campus visit.
-        </p>
+        <p style="color:rgba(255,255,255,0.6); font-size:1rem; line-height:1.78; margin-bottom:0.5rem;">We'd love to hear from you. Reach out for admissions, general queries, or to schedule a campus visit.</p>
         <div class="contact-info-items">
-          <div class="ci">
-            <div class="ci-icon">🏫</div>
-            <div>
-              <div class="ci-label">School Name</div>
-              <div class="ci-value">Pallavi Progressive International School<br><small style="color:rgba(255,255,255,0.45);">Also known as: Pallavi Progressive CBSE School</small></div>
-            </div>
-          </div>
-          <div class="ci">
-            <div class="ci-icon">📍</div>
-            <div>
-              <div class="ci-label">Address</div>
-              <div class="ci-value">Thumkunta, Telangana, India<br>Old Alwal Campus also available</div>
-            </div>
-          </div>
-          <div class="ci">
-            <div class="ci-icon">📞</div>
-            <div>
-              <div class="ci-label">Phone</div>
-              <div class="ci-value">
-                <a href="tel:+919133649900">+91 91336 49900</a><br>
-                <a href="tel:+916281167077">+91 62811 67077</a><br>
-                <a href="tel:+919652403939">+91 96524 03939</a>
-              </div>
-            </div>
-          </div>
-          <div class="ci">
-            <div class="ci-icon">✉️</div>
-            <div>
-              <div class="ci-label">Email</div>
-              <div class="ci-value"><a href="mailto:pallaviprogressivecbseschool@gmail.com">pallaviprogressivecbseschool@gmail.com</a></div>
-            </div>
-          </div>
-          <div class="ci">
-            <div class="ci-icon">🌐</div>
-            <div>
-              <div class="ci-label">Website</div>
-              <div class="ci-value"><a href="https://github.com/sandyasai/pallavi-progressive-international-school-.github.io/blob/main/index.html" target="_blank">https://github.com/sandyasai/pallavi-progressive-international-school-.github.io/blob/main/index.html</a></div>
-            </div>
-          </div>
+          <div class="ci"><div class="ci-icon">🏫</div><div><div class="ci-label">School Name</div><div class="ci-value">Pallavi Progressive International School<br><small style="color:rgba(255,255,255,0.45);">Also known as: Pallavi Progressive CBSE School</small></div></div></div>
+          <div class="ci"><div class="ci-icon">📍</div><div><div class="ci-label">Address</div><div class="ci-value">Thumkunta, Telangana, India<br>Old Alwal Campus also available</div></div></div>
+          <div class="ci"><div class="ci-icon">📞</div><div><div class="ci-label">Phone</div><div class="ci-value"><a href="tel:+919133649900">+91 91336 49900</a><br><a href="tel:+916281167077">+91 62811 67077</a><br><a href="tel:+919652403939">+91 96524 03939</a></div></div></div>
+          <div class="ci"><div class="ci-icon">✉️</div><div><div class="ci-label">Email</div><div class="ci-value"><a href="mailto:pallaviprogressivecbseschool@gmail.com">pallaviprogressivecbseschool@gmail.com</a></div></div></div>
+          <div class="ci"><div class="ci-icon">🌐</div><div><div class="ci-label">Website</div><div class="ci-value"><a href="https://www.pallaviprogressive.com" target="_blank">www.pallaviprogressive.com</a></div></div></div>
         </div>
-        <div class="hours-box">
-          <h4>🕐 School Hours</h4>
-          <p>Monday – Saturday<br>8:00 AM – 4:00 PM</p>
-        </div>
+        <div class="hours-box"><h4>🕐 School Hours</h4><p>Monday – Saturday<br>8:00 AM – 4:00 PM</p></div>
       </div>
       <div class="contact-form fade">
         <div class="cf-row">
-          <div class="cf-group">
-            <label>Parent / Student Name</label>
-            <input type="text" placeholder="Your name" id="cf-name"/>
-          </div>
-          <div class="cf-group">
-            <label>Phone Number</label>
-            <input type="tel" placeholder="+91 XXXXX XXXXX" id="cf-phone"/>
-          </div>
+          <div class="cf-group"><label>Parent / Student Name</label><input type="text" placeholder="Your name" id="cf-name"/></div>
+          <div class="cf-group"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX" id="cf-phone"/></div>
         </div>
-        <div class="cf-group">
-          <label>Email Address</label>
-          <input type="email" placeholder="your@email.com" id="cf-email"/>
-        </div>
-        <div class="cf-group">
-          <label>Enquiry Type</label>
+        <div class="cf-group"><label>Email Address</label><input type="email" placeholder="your@email.com" id="cf-email"/></div>
+        <div class="cf-group"><label>Enquiry Type</label>
           <select id="cf-type">
             <option value="">Select enquiry type...</option>
             <option>Admissions 2026–27</option>
@@ -729,10 +542,7 @@
             <option>General Query</option>
           </select>
         </div>
-        <div class="cf-group">
-          <label>Message</label>
-          <textarea rows="4" placeholder="Write your message here..." id="cf-msg"></textarea>
-        </div>
+        <div class="cf-group"><label>Message</label><textarea rows="4" placeholder="Write your message here..." id="cf-msg"></textarea></div>
         <button class="cf-submit" onclick="submitForm()">Send Enquiry →</button>
         <div class="cf-success" id="cf-success">✅ Thank you! We will contact you within 1 business day.</div>
       </div>
@@ -746,33 +556,70 @@
 </footer>
 
 <script>
-  // Scroll fade-in
-  const faders = document.querySelectorAll('.fade');
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        e.target.style.transitionDelay = (i * 0.08) + 's';
-        e.target.classList.add('in');
-        obs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  faders.forEach(f => obs.observe(f));
+// Scroll fade-in
+const faders = document.querySelectorAll('.fade');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      e.target.style.transitionDelay = (i * 0.08) + 's';
+      e.target.classList.add('in');
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+faders.forEach(f => obs.observe(f));
 
-  // Contact form
-  function submitForm() {
-    const name = document.getElementById('cf-name').value;
-    const phone = document.getElementById('cf-phone').value;
-    const msg = document.getElementById('cf-msg').value;
-    if (!name || !phone) { alert('Please enter your name and phone number.'); return; }
-    document.getElementById('cf-success').style.display = 'block';
-    ['cf-name','cf-phone','cf-email','cf-type','cf-msg'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el.tagName === 'SELECT') el.selectedIndex = 0;
-      else el.value = '';
-    });
-    setTimeout(() => document.getElementById('cf-success').style.display = 'none', 6000);
-  }
+// Contact form
+function submitForm() {
+  const name = document.getElementById('cf-name').value;
+  const phone = document.getElementById('cf-phone').value;
+  if (!name || !phone) { alert('Please enter your name and phone number.'); return; }
+  document.getElementById('cf-success').style.display = 'block';
+  ['cf-name','cf-phone','cf-email','cf-type','cf-msg'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el.tagName === 'SELECT') el.selectedIndex = 0;
+    else el.value = '';
+  });
+  setTimeout(() => document.getElementById('cf-success').style.display = 'none', 6000);
+}
+
+// Gallery lightbox
+document.querySelectorAll('.gal-item').forEach(item => {
+  item.addEventListener('click', function() {
+    const img = this.querySelector('img');
+    const caption = this.dataset.caption || img.alt;
+    document.getElementById('lb-img').src = img.src;
+    document.getElementById('lb-caption').textContent = caption;
+    const lb = document.getElementById('lightbox');
+    lb.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+// Gallery filter
+function filterGallery(cat) {
+  document.querySelectorAll('.gal-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('btn-' + cat).classList.add('active');
+  document.querySelectorAll('.gal-item').forEach(item => {
+    const show = cat === 'all' || item.classList.contains(cat);
+    item.classList.toggle('hidden', !show);
+    // Reset tall span when filtering
+    if (show && item.classList.contains('tall') && cat === 'all') {
+      item.style.gridRow = 'span 2';
+    } else if (item.classList.contains('tall')) {
+      item.style.gridRow = show && cat === 'achievements' ? 'span 2' : 'span 1';
+    }
+  });
+}
+
+// Close lightbox with Escape
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 </script>
+
 </body>
 </html>
